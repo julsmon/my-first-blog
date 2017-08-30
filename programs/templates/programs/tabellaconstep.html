@@ -1,0 +1,180 @@
+<div class="bg-white">
+  <div class="container center-block text-muted">
+     {% if program.cycles %}
+        {% for cycle in program.cycles.all %}
+      <div class="row">
+       <div class="card card-block">
+           <p><h3 style="color: #2196f3">{{ cycle.cycle_name }}</h3></p>
+           <p class="card-text"><h5>{{ cycle.cycle_description }}</h5></p>
+                {% if cycle.steps %}
+                <table class="table table-striped table-hover">
+                    <tr>
+                      <td><strong>Attribute</strong></th>
+                        {% for step in cycle.steps.all %}
+                        <td><strong>Step {{ step.id }}</strong></th>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                      <td>Name</td>
+                        {% for step in cycle.steps.all %}
+                      <td>{{ step.step_name }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                      <td>Drain</td>
+                        {% for step in cycle.steps.all %}
+                      <td>{{ step.drain }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                      <td>Hot Water</td>
+                        {% for step in cycle.steps.all %}
+                      <td>{{ step.hot_water }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                      <td>Cold Water</td>
+                        {% for step in cycle.steps.all %}
+                      <td>{{ step.cold_water }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                      <td>Hard Water</td>
+                        {% for step in cycle.steps.all %}
+                      <td>{{ step.hard_water }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                      <td>Detergent 1</td>
+                        {% for step in cycle.steps.all %}
+                      <td>{{ step.detergent_1 }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                      <td>Detergent 2</td>
+                        {% for step in cycle.steps.all %}
+                      <td>{{ step.detergent_2 }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                      <td>Detergent 3</td>
+                        {% for step in cycle.steps.all %}
+                      <td>{{ step.detergent_3 }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                      <td>Detergent 4</td>
+                        {% for step in cycle.steps.all %}
+                      <td>{{ step.detergent_4 }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                      <td>Softener 1</td>
+                        {% for step in cycle.steps.all %}
+                      <td>{{ step.softener_1 }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                      <td>Softener 2</td>
+                        {% for step in cycle.steps.all %}
+                      <td>{{ step.softener_2 }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                      <td>Sanitiser</td>
+                        {% for step in cycle.steps.all %}
+                      <td>{{ step.sanitiser }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                      <td>Auxiliary 1</td>
+                        {% for step in cycle.steps.all %}
+                      <td>{{ step.aux_1 }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                      <td>Auxiliary 2</td>
+                        {% for step in cycle.steps.all %}
+                      <td>{{ step.aux_2 }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                      <td>Auxiliary 3</td>
+                        {% for step in cycle.steps.all %}
+                      <td>{{ step.aux_3 }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                      <td>Auxiliary 4</td>
+                        {% for step in cycle.steps.all %}
+                      <td>{{ step.aux_4 }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                      <td>Auxiliary 5</td>
+                        {% for step in cycle.steps.all %}
+                      <td>{{ step.aux_5 }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                      <td>Auxiliary 6</td>
+                        {% for step in cycle.steps.all %}
+                      <td>{{ step.aux_6 }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                      <td>Auxiliary 7</td>
+                        {% for step in cycle.steps.all %}
+                      <td>{{ step.aux_7 }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                      <td>Auxiliary 8</td>
+                        {% for step in cycle.steps.all %}
+                      <td>{{ step.aux_8 }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                      <td>Auxiliary 9</td>
+                        {% for step in cycle.steps.all %}
+                      <td>{{ step.aux_9 }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                      <td>Auxiliary 10</td>
+                        {% for step in cycle.steps.all %}
+                      <td>{{ step.aux_10 }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                      <td>Motor</td>
+                        {% for step in cycle.steps.all %}
+                      <td>{{ step.motor }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                      <td>Motor Speed</td>
+                        {% for step in cycle.steps.all %}
+                      <td>{{ step.motor_speed }}</td>
+                        {% endfor %}
+                    </tr>
+
+                </table>
+                {% else %}
+                  <p>No steps contained in this cycle</p>
+                {% endif %}
+              <a href="" class="btn btn-secondary">Modify it</a>
+        </div>
+      </div>
+
+        {% endfor %}
+    {% else %}
+      <div class="col-sm-12">
+            <br>
+            <a href="">
+            <a href='' class="btn btn-primary btn-block">Add a new cycle</a>
+            </a>
+      </div>
+    {% endif %}
+</div>
+</div>

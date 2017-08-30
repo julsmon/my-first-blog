@@ -1,0 +1,47 @@
+{% extends 'programs/base.html' %}
+{% block title %}Hera Control: Modify This Cycle{% endblock %}
+
+{% block content %}
+
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">Update This Cycle</h1>
+          <p class="lead">Modify the settings below according to your preferences.</p>
+          <p>
+          </p>
+        </div>
+      </section>
+
+      <div class="bg-secondaryctabig">
+        <div class="container text-center">
+
+                {% for field in form %}
+                <form>
+                {% csrf_token %}
+                  <div class="form-group">
+                    <label><strong>{{ field.label_tag }}</strong></label>
+                    <div>{{ field }}</div>
+                  </div>
+                {% endfor %}
+                  <button type="submit" class="btn btn-primarycta">Save changes</button>
+                </form>
+
+
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

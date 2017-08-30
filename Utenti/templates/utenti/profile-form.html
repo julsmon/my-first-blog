@@ -1,0 +1,48 @@
+{% extends 'programs/base.html' %}
+{% block title %}Welcome to Hera Control Panel{% endblock %}
+
+{% block content %}
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">Hello and welcome to your account!</h1>
+        <p class="lead">Let's start the onboarding process, it takes just two small steps.</p>
+      </div>
+    </section>
+
+    <div class="bg-secondaryctabig">
+      <div class="container text-center">
+
+              {% for field in form %}
+              <form action="" method="post">
+              {% csrf_token %}
+              <div class="form-group row">
+                  <label class="col-sm-4"><strong>{{ field.label_tag }}</strong></label>
+                  <div class="col-sm-8">
+                  <div>{{ field }}</div>
+                  </div>
+                </div>
+              {% endfor %}
+                <button type="submit" class="btn btn-primarycta">Okay, proceed</button>
+              </form>
+
+
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {% endblock %}

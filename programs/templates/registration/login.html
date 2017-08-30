@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Hera Control: Log In To Your Account</title>
+
+    <!-- Load the path to static file specific for this template -->
+    {% load staticfiles %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'programs/cover.css' %}" />
+
+  </head>
+
+  <body>
+
+  <div class="site-wrapper">
+
+    <div class="site-wrapper-inner">
+
+      <div class="cover-container">
+
+        <div class="inner cover">
+              <h1 class="cover-heading">Welcome to Hera Control Panel.</h1>
+                    <p class="lead">Log in to access your dashboard.</p>
+
+                    <form action="" method="post">
+                      {% csrf_token %}
+                      <div class="input-group input-group-lg">
+                        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user-circle-o" aria-hidden="true"></i></span>
+                        <input class="form-control" id="id_username" maxlength="150" name="username" type="text" required="" placeholder="Username"></input>
+                      </div>
+                      <div class="input-group input-group-lg">
+                        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+                        <input class="form-control" id="id_email" maxlength="254" name="email" type="email" required="" placeholder="E-mail"></input>
+                      </div>
+                      <div class="input-group input-group-lg">
+                        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-key" aria-hidden="true"></i></span>
+                        <input class="form-control" id="id_password" name="password" type="password" required="" placeholder="Password"></input>
+                      </div>
+                     <button class="btn btn-lg btn-default btn-block" type="submit">Log In  <i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
+                   </form>
+                   <p></p>
+                   <p>Don't have an account yet? <a href="">Create one</a></p>
+                   <br>
+                  </div>
+
+                  <div class="mastfoot">
+                    <div class="inner">
+                      <p>Hera Control Admin Panel. Powered by <a href="http://ctaelectronics.com">CTA Electronics</a></p>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+      <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    </body>
+  </html>

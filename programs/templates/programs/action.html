@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Program Page for Hera Project</title>
+
+    <!-- Load the path to static file specific for this template -->
+    {% load staticfiles %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'programs/style.css' %}" />
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+
+          <!--Hera Logo-->
+          <div class="navbar-header">
+            <a class="navbar-brand" href="{% url 'programs:index' %}">Hera</a>
+          </div>
+
+        </div>
+    </nav>
+
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">All your programs, listed here</h1>
+        <p class="lead">From this view you can easily see and manage your existing washing programs.</p>
+        <p>
+          <!--<a href="#" class="btn btn-primary">Launch it</a>-->
+          <!--<a href="#" class="btn btn-secondary">See Analytics</a>-->
+        </p>
+      </div>
+    </section>
+
+    <div class="album text-muted">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-sm-4 py-4">
+           <div class="card">
+             {% if all_programs %}
+               <h3>Here are all the programs:</h3>
+               <ul>
+                   {% for program in all_programs %}
+                   <li><a href="/programs/{{ program.id }}/">{{ program.program_name }}</a></li>
+                   {% endfor %}
+                 </ul>
+                 {% else %}
+                   <h3>There's no program yet. Go ahead and create your first one :)</h3>
+                 {% endif %}
+             <p><h5>Would you like to modify this program?</h5></p>
+             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+             <a href="" class="btn btn-secondary">Modify it</a>
+           </div>
+         </div>
+         <div class="col-sm-4 py-4">
+          <div class="card">
+             <p><h5>Would you like to use it as a template?</h5></p>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <a href="" class="btn btn-secondary">Use it</a>
+          </div>
+        </div>
+        <div class="col-sm-4 py-4">
+          <div class="card">
+             <p><h5>Would you like to bookmark it as a favourite?</h5></p>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <a href="" class="btn btn-secondary">Bookmark it</a>
+          </div>
+        </div>
+        <div class="container">
+          <a href ="" class="btn btn-primarycta btn-block">Go Back to All Programs</a>
+        </div>
+
+      </div>
+    </div>
+
+      <footer class="text-muted">
+        <div class="container">
+          <p class="float-right">
+            <a href="#">Back to top</a>
+          </p>
+          <p>Hera Control Admin Panel. Powered by <a href="http://ctaelectronics.com">CTA Electronics</a></p>
+        </div>
+      </footer>
+
+      <!-- Bootstrap core JavaScript
+      ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  </body>
+</html>

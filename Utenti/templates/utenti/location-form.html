@@ -1,0 +1,48 @@
+{% extends 'programs/base.html' %}
+{% block title %}Welcome to Hera Control Panel: Enter Location{% endblock %}
+
+{% block content %}
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">Well done!<br>Now you can enter your location.</h1>
+        <!--<p class="lead">Afterwards, you'll be able to add as many locations as you like from your home page.</p>-->
+      </div>
+    </section>
+
+    <div class="bg-secondaryctabig">
+      <div class="container text-center">
+
+              {% for field in form %}
+              <form action="" method="post">
+              {% csrf_token %}
+              <div class="form-group row">
+                  <label class="col-sm-4"><strong>{{ field.label_tag }}</strong></label>
+                  <div class="col-sm-8">
+                  <div>{{ field }}</div>
+                  </div>
+                </div>
+              {% endfor %}
+                <button type="submit" class="btn btn-primarycta">Okay, Done</button>
+              </form>
+
+
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {% endblock %}

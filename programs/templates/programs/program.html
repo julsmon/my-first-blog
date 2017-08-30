@@ -1,0 +1,89 @@
+{% extends 'programs/base.html' %}
+{% block title %}Hera Control: Program Details{% endblock %}
+
+{% block content %}
+
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">{{ program.program_name }}</h1>
+          <p class="lead">{{ program.program_description }}</p>
+          <p>
+                        {% if program.is_favourite %}
+                                <form action="{% url 'programs:unfavourite' program.id %}" method="post">
+                                {% csrf_token %}
+                                <input type="submit" value="Remove from Favourites" class="btn btn-secondary"></form>
+                        {% else %}
+                                <form action="{% url 'programs:favourite' program.id %}" method="post">
+                                {% csrf_token %}
+                                <input type="submit" value="Bookmark it as a Favourite" class="btn btn-secondary"></form>
+                        {% endif %}
+          </p>
+        </div>
+      </section>
+
+    <div class="bg-primarycta text-muted">
+      <div class="container">
+          <div class="row">
+             {% if program.cycles %}
+                {% for cycle in program.cycles.all %}
+                  <div class="col-sm-4">
+                   <div class="card">
+                    <h6 class="card-header">Cycle ID: {{ cycle.id }}</h6>
+                     <p><h5 style="color: #2196f3">{{ cycle.cycle_name }}</h5></p>
+                     <p class="card-text"><lead>{{ cycle.cycle_description }}</lead></p>
+                          {% if cycle.steps %}
+                              <ul class="list-group list-group-flush">
+                                  {% for step in cycle.steps.all %}
+                                  <li class="list-group-item">
+                                     <p class="card-text"><strong>Step {{ step.id }}: {{ step.step_name }}</strong> </p>
+                                     <p class="card-text">{{ step.step_description }}</p>
+                                    <p class="card-text"> <a class="btn btn-secondary"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> View and Edit</a> <a class="btn btn-secondary"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a></p>
+                                  </li>
+                                  {% endfor %}
+                              </ul>
+                          {% else %}
+                                  <p>No steps contained in this cycle</p>
+                            {% endif %}
+                    </div>
+                   </div>
+
+            {% endfor %}
+          {% endif %}
+        </div>
+        </div>
+       </div>
+
+
+      <div class="bg-secondarycta">
+        <div class="container">
+
+          <div class="row">
+            <div class="col-sm-4 py-4">
+             <div class="card">
+               <p><h5>Would you like to modify this program?</h5></p>
+               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+               <a href="" class="btn btn-secondary"><i class="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i></a>
+             </div>
+           </div>
+           <div class="col-sm-4 py-4">
+            <div class="card">
+               <p><h5>Would you like to use it as a template?</h5></p>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <a href="" class="btn btn-secondary"><i class="fa fa-clone fa-3x" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          <div class="col-sm-4 py-4">
+            <div class="card">
+               <p><h5>Would you like to bookmark it as a favourite?</h5></p>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <a href="" class="btn btn-secondary"><i class="fa fa fa-thumb-tack fa-3x" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          <div class="bg-secondarycta">
+            <a href ="" class="btn btn-primarycta btn-block">Go Back to All Programs</a>
+          </div>
+
+        </div>
+      </div>
+
+{% endblock %}

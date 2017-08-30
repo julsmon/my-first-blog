@@ -1,0 +1,107 @@
+{% extends 'programs/base.html' %}
+{% block title %}Hera Control: All Programs{% endblock %}
+
+{% block content %}
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">All your programs, listed here</h1>
+        <p class="lead">From this view you can easily see and manage your existing washing programs.</p>
+        <p>
+          <a href="#" class="btn btn-secondary">Add New</a>
+          <!--<a href="#" class="btn btn-secondary">See Analytics</a>-->
+        </p>
+      </div>
+    </section>
+
+  {% if programs_list %}
+    <div class="bg-primarycta">
+      <div class="container">
+        <div class="row">
+                {% for program in programs_list %}
+                  <div class="col-sm-4">
+                    <div class="card">
+                      <h6 class="card-header">Program ID: {{ program.id }}</h6>
+                        <div class="card-block">
+                          <a href="/programs/{{ program.id }}/" class"card-title"><h5>{{ program.program_name }}</h5></a>
+                          <p class="card-text">{{ program.program_description }}</p>
+                          <a href="/programs/{{ program.id }}/" class="btn btn-secondary">See detail</a>
+                          <form action="{% url 'programs:program-update' program.id %}" style="display: inline;">
+                            {% csrf_token %}
+                            <input type="hidden" name="program_id" value="{{ program.id }}">
+                            <button type="submit" class="btn btn-secondary">
+                              <span class="fa fa-pencil-square-o" aria-hidden="true" ></span>
+                            </button>
+                          </form>
+                          <form action="{% url 'programs:program-delete' program.id %}" method="post" style="display: inline;">
+                            {% csrf_token %}
+                            <input type="hidden" name="program_id" value="{{ program.id }}">
+                            <button type="submit" class="btn btn-secondary">
+                              <span class="fa fa-trash-o" aria-hidden="true" ></span>
+                            </button>
+                          </form>
+                        </div>
+                    </div>
+                  </div>
+
+
+                    {% cycle '' '' '' '' '' '<div class="clearfix visible-lg"></div>' %}
+                {% endfor %}
+          </div>
+        </div>
+      </div>
+    {% else %}
+       <div class="bg-whitebig text-center">
+        <h3>It looks like there's no program here.<br>How about creating the first?</h3><br>
+        <a href='' class="btn btn-secondary btn-lg">Add a new program</a>
+      </div>
+    {% endif %}
+
+
+
+<div class="bg-secondaryctabig">
+ <div class="container">
+  <div class="row">
+      <div class="col-sm-4">
+        <div class="media">
+          <div class="row ">
+            <div class="media-img  pull-left  col-sm-5  col-md-4 ">
+              <div class="img-overlay "></div>
+              <i class="fa fa-magic fa-4x"></i> </div>
+            <div class="media-body   col-sm-7 col-md-8  ">
+              <h4 class="media-heading"> <a href="">Create a New Program</a></h4>
+              <p class="hidden-sm">Building a new program has never been easier.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="media">
+          <div class="row ">
+            <div class="media-img  pull-left  col-sm-5  col-md-4 ">
+              <div class="img-overlay "></div>
+              <i class="fa fa-id-card-o fa-4x"></i> </div>
+            <div class="media-body   col-sm-7 col-md-8  ">
+              <h4 class="media-heading"> <a href="">Update Your Profile</a></h4>
+              <p class="hidden-sm">Building a new program has never been easier.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="media">
+          <div class="row ">
+            <div class="media-img  pull-left  col-sm-5  col-md-4 ">
+              <div class="img-overlay "></div>
+              <i class="fa fa-sliders fa-4x"></i> </div>
+            <div class="media-body   col-sm-7 col-md-8  ">
+              <h4 class="media-heading"> <a href="">See the Machine Settings</a></h4>
+              <p class="hidden-sm">Check, update or modify machine parameters.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   </div>
+  </div>
+
+{% endblock %}
